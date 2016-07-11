@@ -82,4 +82,14 @@ Rails.application.configure do
   end
 
   config.action_mailer.default_url_options = { host: 'dry-woodland-63658.herokuapp.com'}
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:           587,
+    address:        "smtp.mailgun.org",
+    user_name:      ENV["mailgun_user"],
+    password:       ENV["mailgun_secret"],
+    domain:         "sandbox130b29f6fb1240cfa4db8dc2ba9510d6.mailgun.org",
+    authentication: :plain,
+  }
 end
